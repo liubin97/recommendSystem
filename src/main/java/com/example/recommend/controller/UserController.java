@@ -1,5 +1,6 @@
 package com.example.recommend.controller;
 
+import com.example.recommend.entity.User;
 import com.example.recommend.entity.UserInfo;
 import com.example.recommend.service.UserService;
 import net.sf.json.JSONArray;
@@ -26,6 +27,18 @@ public class UserController {
         modelMap.put("userList",list);
         return modelMap;
     }
+
+    @GetMapping("/getAllUsers")
+    public Map<String,Object> getAllUser(){
+        Map<String,Object> modelMap = new HashMap<>();
+        List<User> list = userService.selcetAllUser();
+//        JSONArray jsonArray = JSONArray.fromObject(list);
+//        System.out.println(jsonArray);
+        modelMap.put("userList",list);
+        return modelMap;
+    }
+
+
 
     @GetMapping("/getUserInfoByOpenid")
     public Map<String,Object> listUser(String openid){

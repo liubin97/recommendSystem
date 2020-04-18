@@ -7,4 +7,9 @@
 		SELECT * FROM user
 	</select>
 
+
+	<select id="selcetAllUser" resultType="com.example.recommend.entity.User">
+		SELECT * FROM users
+	</select>
+
 </mapper>

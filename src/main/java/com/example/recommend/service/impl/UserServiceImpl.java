@@ -1,6 +1,7 @@
 package com.example.recommend.service.impl;
 
 import com.example.recommend.dao.UserDao ;
+import com.example.recommend.entity.User;
 import com.example.recommend.entity.UserInfo ;
 import com.example.recommend.service.UserService ;
 import net.sf.json.JSONObject;
@@ -19,6 +20,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserInfo> getUsers() {
         return userDao.selectUsers();
+    }
+
+    @Override
+    public List<User> selcetAllUser() {
+        return userDao.selcetAllUser();
     }
 
     @Override
