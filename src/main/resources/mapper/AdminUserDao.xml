@@ -3,8 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.recommend.dao.AdminUserDao">
-<select id="getAdminUserByPass" parameterType="java.lang.String" resultType="com.example.recommend.entity.AdminUser">
-    select * from adminUser where adminname = #{adminname} and adminpasswd = #{adminpassword}
-</select>
+    <select id="getAdminUserByPass" parameterType="java.lang.String" resultType="com.example.recommend.entity.AdminUser">
+        select * from adminUser where adminname = #{adminname} and adminpasswd = #{adminpassword}
+    </select>
+
+
+    <delete id="deleteUserById" parameterType="java.lang.String">
+        delete from users where userId = #{userid}
+    </delete>
 
 </mapper>

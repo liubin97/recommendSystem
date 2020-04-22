@@ -8,4 +8,5 @@ public interface LoginService {
      * @return
      */
     boolean checkAccount(String username, String password);
+
 }

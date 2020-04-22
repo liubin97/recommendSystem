@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface AdminUserDao {
     List<AdminUser> getAdminUserByPass(String adminname, String adminpassword);
-
+    void deleteUserById(String userid);
 }
