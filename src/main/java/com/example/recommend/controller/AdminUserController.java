@@ -1,6 +1,7 @@
 package com.example.recommend.controller;
 
 import com.example.recommend.entity.User;
+import com.example.recommend.entity.Users;
 import com.example.recommend.service.AdminUserService;
 import com.example.recommend.service.LoginService;
 import net.sf.json.JSONObject;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -38,6 +40,18 @@ public class AdminUserController {
         try{
             adminUserService.deleteUserById(userid);
             map.put("sucess",true);
+        }catch (Exception e){
+            Object sucess = map.put("sucess", false);
+        }
+        return map;
+    }
+
+    @GetMapping("/getUserList")
+    public @ResponseBody Map<String, Object> deleteUser(){
+        Map<String, Object> map = new HashMap<>();
+        try{
+            List<Users> users = adminUserService.getAllUserList();
+            map.put("userList",users);
         }catch (Exception e){
             Object sucess = map.put("sucess", false);
         }

@@ -2,13 +2,13 @@ package com.example.recommend.service.impl;
 
 import com.example.recommend.dao.AdminUserDao;
 import com.example.recommend.entity.AdminUser;
+import com.example.recommend.entity.Users;
 import com.example.recommend.service.AdminUserService;
 import com.example.recommend.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLException;
 import java.util.List;
 
 
@@ -27,5 +27,10 @@ public class AdminLoginServiceImpl implements LoginService, AdminUserService {
     @Transactional
     public void deleteUserById(String userid) {
         adminUserDao.deleteUserById(userid);
+    }
+
+    @Override
+    public List<Users> getAllUserList() {
+        return adminUserDao.getAllUserList();
     }
 }

@@ -12,4 +12,8 @@
         delete from users where userId = #{userid}
     </delete>
 
+    <select id="getAllUserList" resultType="com.example.recommend.entity.Users">
+        select * from users
+    </select>
+
 </mapper>
