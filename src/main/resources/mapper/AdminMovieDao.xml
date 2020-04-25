@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.recommend.dao.AdminMovieDao">
+
+    <select id="getAllMovieList"  resultType="com.example.recommend.entity.Movies">
+        select * from movies
+    </select>
+
+    <insert id="insertMovie" parameterType="com.example.recommend.entity.Movies">
+        insert  into movies (title, genres, imageurl, introduction, director, actors)
+        VALUES (#{title},#{genres},#{imageurl},#{introduction},#{director},#{actors})
+    </insert>
+
+    <delete id="deleteMovieByIds" parameterType="int[]">
+        delete from movies where movieId in
+        <foreach collection="array" item="id"  open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateMovies" parameterType="com.example.recommend.entity.Movies">
+        update movies set title = #{title},genres=#{genres},imageurl=#{imageurl},introduction=#{introduction},director=#{director},actors=#{actors}
+        where movieId = #{movieId}
+    </update>
+
+</mapper>
