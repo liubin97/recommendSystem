@@ -3,7 +3,6 @@ package com.example.recommend.controller;
 import com.example.recommend.entity.User;
 import com.example.recommend.entity.UserInfo;
 import com.example.recommend.service.UserService;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

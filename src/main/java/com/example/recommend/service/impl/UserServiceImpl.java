@@ -3,13 +3,12 @@ package com.example.recommend.service.impl;
 import com.example.recommend.dao.UserDao ;
 import com.example.recommend.entity.User;
 import com.example.recommend.entity.UserInfo ;
-import com.example.recommend.service.UserService ;
+import com.example.recommend.service.UserService;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sun.rmi.runtime.NewThreadAction;
 
 import java.util.HashMap;
 import java.util.List;
