@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -68,6 +69,11 @@ public class UserServiceImpl implements UserService {
     public List<Users> selectUserInfoById(String userid) {
 
         return userDao.selectUserInfoById(userid);
+    }
+
+    @Override
+    public Map<String, Object> regiter(String username, String password) {
+        return null;
     }
 
 
