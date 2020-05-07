@@ -3,9 +3,11 @@ package com.example.recommend.service;
 
 import com.example.recommend.entity.User;
 import com.example.recommend.entity.UserInfo;
+import com.example.recommend.entity.Users;
 import net.sf.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
     List<UserInfo> getUsers();
@@ -18,5 +20,5 @@ public interface UserService {
 
     //List<Users> getUserInfoById(String userid);
     List<Users> selectUserInfoById(String userid);
-    Map<String,Object> regiter(String username,String password);
+    Map<String,Object> regiter(String username, String password);
 }
