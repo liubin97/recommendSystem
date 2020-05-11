@@ -19,6 +19,6 @@ public interface UserService {
     void updateUserInfo(JSONObject jsonObject);
 
     //List<Users> getUserInfoById(String userid);
-    List<Users> selectUserInfoById(String userid);
+    List<Users> selectUserInfoByName(String username);
     Map<String,Object> regiter(String username, String password);
 }

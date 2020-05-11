@@ -16,6 +16,6 @@ public interface UserDao {
     UserInfo getUserInfoByOpenid(String openid);
     void updateUserInfo(UserInfo userInfo);
 
-    //List<Users> getUserInfoById(String userid);
-    List<Users> selectUserInfoById(String userid);
+    //List<Users> getUserInfoById(String username);
+    List<Users> selectUserInfoByName(String username);
 }

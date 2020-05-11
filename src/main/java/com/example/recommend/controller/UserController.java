@@ -68,10 +68,10 @@ public class  UserController {
     }
 
 
-    @GetMapping("/selectUserInfoById")
-    public Map<String,Object> selectUserInfoById(String userid){
+    @GetMapping("/selectUserInfoByName")
+    public Map<String,Object> selectUserInfoByName(String username){
         Map<String,Object> modelMap = new HashMap<>();
-        List<Users> u = userService.selectUserInfoById(userid);
+        List<Users> u = userService.selectUserInfoByName(username);
         //JSONObject jsonObject = JSONObject.fromObject(u);
         //System.out.println(jsonObject);
         modelMap.put("users",u);

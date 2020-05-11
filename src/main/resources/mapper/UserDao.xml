@@ -12,8 +12,8 @@
 		SELECT * FROM users
 	</select>
 
-	<select id="selectUserInfoById" resultType="com.example.recommend.entity.Users">
-        select * from users where userId = #{userid};
+	<select id="selectUserInfoByName" resultType="com.example.recommend.entity.Users">
+        select * from users where userId = #{username};
     </select>
 
 </mapper>
