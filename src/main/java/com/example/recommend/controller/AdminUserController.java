@@ -57,15 +57,16 @@ public class AdminUserController {
     }
 
     @GetMapping("/getUserList")
-    public @ResponseBody Map<String, Object> deleteUser(){
-        Map<String, Object> map = new HashMap<>();
+    public @ResponseBody ResponseBean getUserList(){
+        ResponseBean response = new ResponseBean();
         try{
             List<Users> users = adminUserService.getAllUserList();
-            map.put("userList",users);
+            response.setData(users);
+            response.setSuccess(true);
         }catch (Exception e){
-            Object sucess = map.put("sucess", false);
+            response.setSuccess(false);
         }
-        return map;
+        return response;
     }
 
 }
