@@ -8,7 +8,7 @@ import java.util.List;
 public interface MoviehomeService {
 
     List<Movies> getAllMovieList();
-    List<Movies> selectmovie(long Title);
+    Movies selectmovie(String Title);
 
 
 }
