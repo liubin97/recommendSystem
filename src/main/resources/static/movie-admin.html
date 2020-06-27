@@ -97,9 +97,9 @@
                                     <div class="row">
                                       <div class = "col-sm-12 col-md-6">
                                         <div class="btn-group btn-group-justified">
-                                          <button type="button" class="btn  btn-secondary" data-toggle="modal" data-target="#default">新增</button>
-                                          <button type="button" class="btn  btn-info" data-toggle="modal" data-target="#default">修改</button>
-                                          <button type="button" class="btn  btn-danger" data-toggle="modal" data-target="#default">删除</button>
+                                          <button type="button" id="add-btn" class="btn  btn-secondary" data-toggle="modal" data-target="#default">新增</button>
+                                          <button type="button" id="edit-btn" class="btn  btn-info" data-toggle="modal" data-target="#default">修改</button>
+                                          <button type="button" id="del-btn" class="btn  btn-danger" data-toggle="modal" data-target="#default">删除</button>
                                         </div>
                                 
                                       </div>
@@ -134,31 +134,43 @@
 				<form class="form form-horizontal">
 					<div class="form-body">
 						<div class="form-group row">
-							<label class="col-md-3 label-control" for="eventRegInput1">电影名称: </label>
+							<label class="col-md-3 label-control" for="name">电影名称: </label>
 							<div class="col-md-9">
-								<input type="text" id="eventRegInput1" class="form-control" name="fullname">
+								<input type="text" id="name" class="form-control" name="name">
 							</div>
 						</div>
+                        <input type="hidden" id="movieid" >
+
+
+                        <div class="form-group row">
+                            <label class="col-md-3 label-control" for="genres">电影分类： </label>
+                            <div class="col-md-9">
+                                <input type="text" id="genres" class="form-control" name="genres">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 label-control" for="director">导演： </label>
+                            <div class="col-md-9">
+                                <input type="text" id="director" class="form-control" name="director">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 label-control" for="actors">演员： </label>
+                            <div class="col-md-9">
+                                <input type="text" id="actors" class="form-control" name="actors">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 label-control" for="image">图片： </label>
+                            <div class="col-md-9">
+                                <input type="file" id="image" class="form-control-file" name="image">
+                            </div>
+                        </div>
 
 						<div class="form-group row">
-							<label class="col-md-3 label-control" for="eventRegInput2">电影分类： </label>
+							<label class="col-md-3 label-control" for="introduction">简介: </label>
 							<div class="col-md-9">
-								<input type="text" id="eventRegInput2" class="form-control" name="title">
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<label class="col-md-3 label-control" for="eventRegInput3">标签： </label>
-							<div class="col-md-9">
-                  <div class="case-sensitive form-control" data-tags-input-name="case-sensitive">剧情, 动作</div>
-                  
-              </div>
-						</div>
-
-						<div class="form-group row">
-							<label class="col-md-3 label-control" for="eventRegInput4">简介: </label>
-							<div class="col-md-9">
-								<input type="text" id="eventRegInput4" class="form-control" name="email">
+                                <textarea id="introduction" class="form-control" name="introduction"></textarea>
 							</div>
 						</div>
 
@@ -168,7 +180,7 @@
 		</div>
 		<div class="modal-footer">
 		<button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">取消</button>
-		<button type="button" class="btn btn-outline-primary">确定</button>
+		<button type="button" class="btn btn-outline-primary" id="add-confirm" data-dismiss="modal">确定</button>
 		</div>
 		</div>
 		</div>
@@ -198,6 +210,7 @@
     <!-- END PAGE LEVEL JS-->
     <script src="app-assets/js/tagging.js"></script>
     <script src="app-assets/vendors/js/tagging.min.js"></script>
+    <script src="js/movie-admin.js"></script>
 
 
   </body>

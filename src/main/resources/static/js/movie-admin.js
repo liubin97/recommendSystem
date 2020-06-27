@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var dataSet = [];
     $.ajax({
-        url: "/adminUser/getUserList",
+        url: "/adminMovie/selectAllMovies",
         async: false,
         type: "GET",
         dataType: "json",
@@ -12,12 +12,15 @@ $(document).ready(function () {
                 if (result.data) {
 
                     result.data.forEach(function (item) {
-                        var user = [];
-                        user.push(item.userId);
-                        user.push(item.username);
-                        user.push(item.gender === "M" ? "男" : "女");
-                        user.push(item.age);
-                        dataSet.push(user);
+                        var movie = [];
+                        movie.push(item.movieId);
+                        movie.push(item.title);
+                        movie.push(item.genres);
+                        movie.push(item.introduction);
+                        movie.push(item.imageurl);
+                        movie.push(item.director);
+                        movie.push(item.actors)
+                        dataSet.push(movie);
                     });
                 } else {
                     alert("没有找到数据");
@@ -32,13 +35,12 @@ $(document).ready(function () {
         }
     })
 
-    var table = $('#user-table').DataTable({
+    $('#movie-table').DataTable( {
         data: dataSet,
         columns: [
-            {title: "id"},
-            {title: "用户名"},
-            {title: "性别"},
-            {title: "年龄"}
+            {title: "电影id"},
+            { title: "电影名称" },
+            { title: "电影分类" }
         ],
         language: {
             "sProcessing": "处理中...",
@@ -66,7 +68,8 @@ $(document).ready(function () {
         },
         info: true,
         select: true
-    });
+    } );
+
 
     $("#del-btn").click(function () {
 
@@ -75,12 +78,8 @@ $(document).ready(function () {
             userid:selectedData[0][0]
         };
         if (selectedData.length > 0) {
-            if(selectedData.length>1){
-                console.log("请选择单个用户")
-                return;
-            }
             $.ajax({
-                url: "/adminUser/deleteUser",
+                url: "/adminMovie/deleteMovie",
                 async: false,
                 type: "POST",
                 dataType: "json",
@@ -99,7 +98,40 @@ $(document).ready(function () {
             console.log("请选择要删除的数据");
         }
 
+
+        console.log();
     })
 
+    $("#add-confirm").click(function () {
+        var title = $("#name").val();
+        var genres = $("#genres").val();
+        var introduction = $("#introduction").val();
+        var director = $("#director").val();
+        var actors = $("#actors").val()
+        var fromData  = {
+            title: title,
+            genres: genres,
+            introduction: introduction,
+            director: director,
+            actors: actors
+        }
+        var newRow = [0,title,genres]
+        $.ajax({
+            url: "/adminMovie/addMovie",
+            async: false,
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(fromData),
+            success: function (result) {
+                table.rows.add(newRow)
+
+            },
+            error: function (error) {
+                console.log("error");
+            }
+        })
+
+    });
 
 });

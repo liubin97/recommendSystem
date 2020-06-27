@@ -19,14 +19,13 @@ public class AdminMovieController {
 
     @GetMapping("/selectAllMovies")
     public @ResponseBody
-    ResponseBean selectAllMovies(){
+    ResponseBean selectAllMovies() {
         ResponseBean response = new ResponseBean();
-        try{
+        try {
             List<Movies> moviesList = adminMovieService.getAllMovieList();
             response.setSuccess(true);
             response.setData(moviesList);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response.setSuccess(false);
             response.setErrMsg(e.getMessage());
         }
@@ -34,17 +33,17 @@ public class AdminMovieController {
     }
 
     @PostMapping("/deleteMovie")
-    public @ResponseBody  ResponseBean deleteMovie(@RequestBody  String[] ids){
+    public @ResponseBody
+    ResponseBean deleteMovie(@RequestBody String[] ids) {
         ResponseBean response = new ResponseBean();
-        try{
+        try {
             int[] movieids = new int[ids.length];
-            for(int i = 0; i<movieids.length;i++){
+            for (int i = 0; i < movieids.length; i++) {
                 movieids[i] = Integer.parseInt(ids[i]);
             }
             adminMovieService.deleteMovieByIds(movieids);
             response.setSuccess(true);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             response.setSuccess(false);
             response.setErrMsg(e.getMessage());
         }
@@ -52,18 +51,35 @@ public class AdminMovieController {
     }
 
     @PostMapping("/addMovie")
-    public void addMovie(@RequestBody String data){
-        Movies movie = (Movies) JSONObject.toBean(JSONObject.fromObject(data),Movies.class);
-        adminMovieService.insertMovie(movie);
+    public ResponseBean addMovie(@RequestBody String data) {
+        ResponseBean response = new ResponseBean();
+        try {
+            Movies movie = (Movies) JSONObject.toBean(JSONObject.fromObject(data), Movies.class);
+            adminMovieService.insertMovie(movie);
+            response.setSuccess(true);
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrMsg(e.getMessage());
+        }
+        return response;
+
     }
 
     @PostMapping("/updateMovie")
-    public void updateMovie(@RequestBody String data){
-        Movies movie = (Movies) JSONObject.toBean(JSONObject.fromObject(data),Movies.class);
-        adminMovieService.updateMovies(movie);
+    public ResponseBean updateMovie(@RequestBody String data) {
+        ResponseBean response = new ResponseBean();
+
+        try {
+            Movies movie = (Movies) JSONObject.toBean(JSONObject.fromObject(data), Movies.class);
+            adminMovieService.updateMovies(movie);
+            response.setSuccess(true);
+        } catch(Exception e){
+            response.setSuccess(false);
+            response.setErrMsg(e.getMessage());
+        }
+        return response;
+
     }
-
-
 
 
 }
