@@ -8,11 +8,8 @@ import java.util.List;
 public interface MoviehomeService {
 
     List<Movies> getAllMovieList();
-<<<<<<< HEAD
-    Movies selectmovie(String Title);
-=======
     List<Movies> selectmovie(long Title);
->>>>>>> Initial commit
+    Movies selectmovie(String Title);
 
 
 }

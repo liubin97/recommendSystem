@@ -4,11 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.recommend.dao.MoviehomeDao">
 
-<<<<<<< HEAD
     <select id="selectmovie" parameterType="String" resultType="com.example.recommend.entity.Movies">
-=======
-    <select id="selectmovie" parameterType="long" resultType="com.example.recommend.entity.Movies">
->>>>>>> Initial commit
 		select * from movies where Title=#{title}
 	</select>
 

@@ -16,11 +16,6 @@ public interface UserDao {
     UserInfo getUserInfoByOpenid(String openid);
     void updateUserInfo(UserInfo userInfo);
 
-<<<<<<< HEAD
     //List<Users> getUserInfoById(String username);
     List<Users> selectUserInfoByName(String username);
-=======
-    //List<Users> getUserInfoById(String userid);
-    List<Users> selectUserInfoById(String userid);
->>>>>>> Initial commit
 }

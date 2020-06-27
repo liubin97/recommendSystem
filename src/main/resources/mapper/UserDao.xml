@@ -12,13 +12,8 @@
 		SELECT * FROM users
 	</select>
 
-<<<<<<< HEAD
 	<select id="selectUserInfoByName" resultType="com.example.recommend.entity.Users">
         select * from users where userId = #{username};
-=======
-	<select id="selectUserInfoById" resultType="com.example.recommend.entity.Users">
-        select * from users where userId = #{userid};
->>>>>>> Initial commit
     </select>
 
 </mapper>

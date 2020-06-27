@@ -66,15 +66,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-<<<<<<< HEAD
     public List<Users> selectUserInfoByName(String username) {
 
         return userDao.selectUserInfoByName(username);
-=======
-    public List<Users> selectUserInfoById(String userid) {
-
-        return userDao.selectUserInfoById(userid);
->>>>>>> Initial commit
     }
 
     @Override

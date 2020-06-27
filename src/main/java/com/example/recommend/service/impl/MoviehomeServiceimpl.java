@@ -9,16 +9,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MoviehomeServiceimpl implements MoviehomeService {
-    @Autowired
-    MoviehomeDao moviehomeDao;
+class MoviehomeServiceimpl implements MoviehomeService {
     @Override
     public List<Movies> getAllMovieList() {
-        return moviehomeDao.getAllMovieList();
+        return null;
+    }
+
+    @Override
+    public List<Movies> selectmovie(long Title) {
+        return null;
     }
 
     @Override
     public Movies selectmovie(String Title) {
-        return moviehomeDao.selectmovie(Title);
+        return null;
     }
 }
