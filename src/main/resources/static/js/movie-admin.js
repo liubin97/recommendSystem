@@ -35,7 +35,7 @@ $(document).ready(function () {
         }
     })
 
-    $('#movie-table').DataTable( {
+    var table = $('#movie-table').DataTable( {
         data: dataSet,
         columns: [
             {title: "电影id"},
@@ -74,25 +74,24 @@ $(document).ready(function () {
     $("#del-btn").click(function () {
 
         var selectedData = table.rows(['.selected']).data();
-        var id ={
-            userid:selectedData[0][0]
-        };
-        if (selectedData.length > 0) {
-            $.ajax({
-                url: "/adminMovie/deleteMovie",
-                async: false,
-                type: "POST",
-                dataType: "json",
-                contentType: "application/json;charset=utf-8",
-                data: JSON.stringify(id),
-                success: function (result) {
-                    table.rows('.selected').remove().draw(false);
 
-                },
-                error: function (error) {
-                    console.log("error");
-                }
-            })
+        if (selectedData.length > 0) {
+            table.rows('.selected').remove().draw(false);
+            // $.ajax({
+            //     url: "/adminMovie/deleteMovie",
+            //     async: false,
+            //     type: "POST",
+            //     dataType: "json",
+            //     contentType: "application/json;charset=utf-8",
+            //     data: JSON.stringify(selectedData),
+            //     success: function (result) {
+            //
+            //
+            //     },
+            //     error: function (error) {
+            //         console.log("error");
+            //     }
+            // })
 
         } else {
             console.log("请选择要删除的数据");
@@ -115,22 +114,96 @@ $(document).ready(function () {
             director: director,
             actors: actors
         }
-        var newRow = [0,title,genres]
-        $.ajax({
-            url: "/adminMovie/addMovie",
-            async: false,
-            type: "POST",
-            dataType: "json",
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(fromData),
-            success: function (result) {
-                table.rows.add(newRow)
-
-            },
-            error: function (error) {
-                console.log("error");
-            }
+        var ids = table.columns().data()[0];
+        var id = Math.max.apply(null, ids)+1;
+        var newRow = [id,title,genres];
+        var rows = []
+        rows.push(newRow);
+        var allRows = table.rows().data();
+        allRows.each(function (item) {
+            rows.push(item);
         })
+        // var newRows = rows.concat(allRows);
+
+        table.clear();
+        table.rows.add(rows).draw();
+        // $.ajax({
+        //     url: "/adminMovie/addMovie",
+        //     async: false,
+        //     type: "POST",
+        //     dataType: "json",
+        //     contentType: "application/json;charset=utf-8",
+        //     data: JSON.stringify(fromData),
+        //     success: function (result) {
+        //
+        //
+        //     },
+        //     error: function (error) {
+        //         console.log("error");
+        //     }
+        // })
+
+    });
+
+    $("#edit-btn").click(function () {
+
+        var selectedData = table.rows(['.selected']).data();
+
+        if (selectedData.length > 0) {
+            if(selectedData.length>1){
+                console.log("请选择单个电影")
+                return;
+            }
+            var row = selectedData[0];
+            $("#movieid").val(row[0])
+            $("#u-name").val(row[1]);
+            $("#u-genres").val(row[2]);
+            // var introduction = $("#u-introduction").val(row[]);
+            // var director = $("#u-director").val(row[2]);
+            // var actors = $("#u-actors").val(row[2])
+            //table.rows('.selected').remove().draw(false);
+            // $.ajax({
+            //     url: "/adminMovie/updateMovie",
+            //     async: false,
+            //     type: "POST",
+            //     dataType: "json",
+            //     contentType: "application/json;charset=utf-8",
+            //     data: JSON.stringify(id),
+            //     success: function (result) {
+            //
+            //
+            //     },
+            //     error: function (error) {
+            //         console.log("error");
+            //     }
+            // })
+
+        } else {
+            console.log("请选择要删除的数据");
+        }
+
+
+        console.log();
+    })
+
+    $("#u-add-confirm").click(function () {
+        var moveid = $("#movieid").val();
+        var title = $("#u-name").val();
+        var genres = $("#u-genres").val();
+        var introduction = $("#u-introduction").val();
+        var director = $("#u-director").val();
+        var actors = $("#u-actors").val()
+        table.rows('.selected').remove().draw(false);
+        var newRow = [moveid,title,genres];
+        var rows = []
+        rows.push(newRow);
+        var allRows = table.rows().data();
+        allRows.each(function (item) {
+            rows.push(item);
+        })
+        // var newRows = rows.concat(allRows);
+        table.clear();
+        table.rows.add(rows).draw();
 
     });
 
