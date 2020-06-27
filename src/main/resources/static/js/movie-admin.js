@@ -179,7 +179,7 @@ $(document).ready(function () {
             // })
 
         } else {
-            console.log("请选择要删除的数据");
+            alert("请选择要删除的数据");
         }
 
 
