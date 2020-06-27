@@ -5,7 +5,10 @@ import com.example.recommend.entity.Movies;
 import com.example.recommend.entity.ResponseBean;
 import com.example.recommend.service.AdminMovieService;
 import com.example.recommend.service.MoviedetailService;
+<<<<<<< HEAD
 import com.example.recommend.service.RatingService;
+=======
+>>>>>>> Initial commit
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +16,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/Moviedetail")
+=======
+@RequestMapping("//Moviedetail")
+>>>>>>> Initial commit
 public class MoviedetailController {
 
     @Autowired
     private MoviedetailService moviedetailService;
+<<<<<<< HEAD
     @Autowired
     RatingService ratingService;
     @GetMapping("/getMoviedetail")
+=======
+
+    @GetMapping("//getMoviedetail")
+>>>>>>> Initial commit
     public @ResponseBody
     ResponseBean Getmovie(@RequestParam long movieId){
         /*JSONObject json = JSONObject.fromObject(movieId);
@@ -28,7 +40,10 @@ public class MoviedetailController {
         ResponseBean response = new ResponseBean();
         try{
             List<Movies> moviesList = moviedetailService.Getmovie(movieId);
+<<<<<<< HEAD
 
+=======
+>>>>>>> Initial commit
             response.setSuccess(true);
             response.setData(moviesList);
         }
@@ -55,6 +70,7 @@ public class MoviedetailController {
         return response;
     }
 
+<<<<<<< HEAD
     @GetMapping("/getRating")
     public @ResponseBody
     ResponseBean getRating(@RequestParam long movieId){
@@ -73,4 +89,6 @@ public class MoviedetailController {
         return response;
     }
 
+=======
+>>>>>>> Initial commit
 }

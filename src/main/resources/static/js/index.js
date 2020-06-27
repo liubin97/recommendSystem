@@ -22,7 +22,11 @@ $(document).ready(function(){
             level:"8.8"
         }
         ];
+<<<<<<< HEAD
     var count = 0;
+=======
+
+>>>>>>> Initial commit
     data.forEach(function(e) {
         console.log(e);
         $("#movie-list").append("<div class=\"card col-3\">\n" +
@@ -38,10 +42,13 @@ $(document).ready(function(){
             "                </div>\n" +
             "\n" +
             "              </div>")
+<<<<<<< HEAD
         count++;
         if(count>8){
             return;
         }
+=======
+>>>>>>> Initial commit
     });
 
 });

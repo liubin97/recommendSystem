@@ -19,6 +19,10 @@ public interface UserService {
     void updateUserInfo(JSONObject jsonObject);
 
     //List<Users> getUserInfoById(String userid);
+<<<<<<< HEAD
     List<Users> selectUserInfoByName(String username);
+=======
+    List<Users> selectUserInfoById(String userid);
+>>>>>>> Initial commit
     Map<String,Object> regiter(String username, String password);
 }

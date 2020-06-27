@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
+=======
+>>>>>>> Initial commit
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +40,11 @@ public class LogInController {
     }
     @PostMapping("/login")
     @ResponseBody
+<<<<<<< HEAD
     public Map<String, Object> login(@RequestBody String data, HttpSession session){
+=======
+    public Map<String, Object> login(@RequestBody String data){
+>>>>>>> Initial commit
         JSONObject jsonObject = JSONObject.fromObject(data);
         String username = jsonObject.getString("username");
         String password = jsonObject.getString("password");
@@ -45,10 +52,15 @@ public class LogInController {
         map = usersService.logIn(username,password);
 
         if(map.get("msg")!=null){
+<<<<<<< HEAD
             session.invalidate();
             map.put("success",false);
         }else {
             session.setAttribute("username",username);
+=======
+            map.put("success",false);
+        }else {
+>>>>>>> Initial commit
             map.put("data",username);
             map.put("success",true);
         }

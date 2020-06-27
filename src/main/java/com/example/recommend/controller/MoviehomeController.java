@@ -24,17 +24,29 @@ public class MoviehomeController {
     private MoviehomeService moviehomeService;
 
 
+<<<<<<< HEAD
     @GetMapping("/selectmovie")
     public @ResponseBody
     ResponseBean selectmovie(@RequestParam String Title){
+=======
+    @GetMapping("//selectmovie")
+    public @ResponseBody
+    ResponseBean selectmovie(@RequestParam long Title){
+>>>>>>> Initial commit
         /*JSONObject json = JSONObject.fromObject(Title);
         long Title1 = json.getLong("Title");*/
         ResponseBean response = new ResponseBean();
         try{
+<<<<<<< HEAD
 
             Movies movie= moviehomeService.selectmovie(Title);
             response.setSuccess(true);
             response.setData(movie);
+=======
+            List<Movies> moviesList = moviehomeService.selectmovie(Title);
+            response.setSuccess(true);
+            response.setData(moviesList);
+>>>>>>> Initial commit
         }
         catch (Exception e){
             response.setSuccess(false);

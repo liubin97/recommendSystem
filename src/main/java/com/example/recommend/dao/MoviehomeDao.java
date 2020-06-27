@@ -10,6 +10,10 @@ package com.example.recommend.dao;
 public interface MoviehomeDao {
 
     List<Movies> getAllMovieList();
+<<<<<<< HEAD
     Movies selectmovie(String Title);
+=======
+    List<Movies> selectmovie(long Title);
+>>>>>>> Initial commit
 
 }
