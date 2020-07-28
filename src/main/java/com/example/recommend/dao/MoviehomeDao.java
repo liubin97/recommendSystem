@@ -10,6 +10,6 @@ package com.example.recommend.dao;
 public interface MoviehomeDao {
 
     List<Movies> getAllMovieList();
-    Movies selectmovie(String Title);
+    List<Movies> selectmovie(String Title);
 
 }
